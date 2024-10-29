@@ -212,18 +212,18 @@
 
     function drawGrid(grid) {
 
-        cellSize = canvas.width / (gridSize) - 1;
+        cellSize = canvas.width / (gridSize);
         console.log(cellSize)
 
 
         context.clearRect(0, 0, canvas.width, canvas.height);
 
 
-        for (let i = 0; i <= gridSize; i++) {
+        for (let i = 1; i <= gridSize - 1; i++) {
             context.moveTo(i * cellSize, 0);
-            context.lineTo(i * cellSize, gridSize * cellSize);
+            context.lineTo(i * cellSize, canvas.width);
             context.moveTo(0, i * cellSize);
-            context.lineTo(gridSize * cellSize, i * cellSize);
+            context.lineTo(canvas.height, i * cellSize);
         }
 
         context.stroke();
@@ -251,14 +251,14 @@
 
     function setGame() {
         let minSide;
-        if (window.innerWidth > window.innerHeight) {
+        if (window.innerWidth + 40 > window.innerHeight) {
             minSide = window.innerHeight - 60;
             canvas.width = minSide;
             canvas.height = minSide;
 
         }
         else {
-            minSide = window.innerWidth - 10;
+            minSide = window.innerWidth - 20;
             canvas.width = minSide;
             canvas.height = minSide;
         }
