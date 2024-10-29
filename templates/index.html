@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Gomoku</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="game-area">
+        <div id="title">Gomoku</div>
+        <button class="button" onclick="startGame()">Start</button>
+        <button class="button" onclick="continueGame()">Continue</button>
+    </div>
+
+    <script>
+        function setGameAreaSize() {
+            const minSide = Math.min(window.innerWidth, window.innerHeight) - 20;
+            const gameArea = document.getElementById("game-area");
+            gameArea.style.width = minSide + "px";
+            gameArea.style.height = minSide + "px";
+        }
+
+        function startGame() {
+            console.log('Перед очисткой:', localStorage);
+            localStorage.clear();
+            console.log('После очистки:', localStorage);
+            window.location.href = '/settings';
+        }
+        function continueGame() {
+            alert("Continuing previous game...");
+        }
+
+        window.onload = setGameAreaSize;
+        window.onresize = setGameAreaSize;
+    </script>
+
+</body>
+
+</html>
