@@ -25,9 +25,15 @@
 
         button {
             padding: 10px 20px;
-            font-size: 16px;
+            background-color: #2d2828;
             cursor: pointer;
             margin: 5px 0;
+            font-size: 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
     </style>
 </head>
@@ -64,6 +70,7 @@
 
     if (grid.length != gridSize) {
         gridSize = grid.length;
+        alert("Размер доски сохранённой игры не совпадает с выбранным значением! Для начала новой игры нажмите Start на домашней странице.");
     }
 
     function loadFromLocalStorage() {
@@ -140,7 +147,7 @@
                         canvas.removeEventListener("click", handleClick);
                         setTimeout(() => {
                             if (gameStatus.status == "win") {
-                                alert(`Вы проиграли!!`);
+                                alert(`Вы проиграли :(`);
                             } else {
                                 alert(`Ничья!`);
                             }
