@@ -28,13 +28,23 @@
         }
 
         function startGame() {
-            console.log('Перед очисткой:', localStorage);
             localStorage.clear();
-            console.log('После очистки:', localStorage);
             window.location.href = '/settings';
         }
         function continueGame() {
-            alert("Continuing previous game...");
+            const gameField = localStorage.getItem("gameField");
+            const fieldSize = Number(localStorage.getItem("fieldSize"));
+            const targetLength = Number(localStorage.getItem("targetLength"));
+
+            if (gameField !== null && !isNaN(fieldSize) && !isNaN(targetLength)) {
+                window.location.href = '/game';
+            }
+            else {
+                alert(`Нет сохранённой игры...`);
+                localStorage.clear();
+                window.location.href = '/settings';
+            }
+
         }
 
         window.onload = setGameAreaSize;

@@ -1,5 +1,5 @@
 #game-area {
-    background-color: #d5be9c;
+    background-color: #F98866;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@
 #title {
     font-size: 48px;
     font-weight: bold;
-    color: #fff9f9;
+    color: #2d2828;
     margin-bottom: 20px;
 }
 
@@ -20,7 +20,7 @@
     font-size: 20px;
     padding: 10px 20px;
     margin: 10px;
-    background-color: #13181b;
+    background-color: #2d2828;
     color: white;
     border: none;
     border-radius: 5px;
@@ -36,6 +36,6 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #988d8d;
+    background-color: #A1BE95;
     font-family: Arial, sans-serif;
 }

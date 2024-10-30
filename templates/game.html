@@ -16,14 +16,6 @@
             margin: 0;
         }
 
-        #game-area {
-            background-color: #d5be9c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
         #button-container {
             display: flex;
             flex-direction: row;
@@ -45,7 +37,6 @@
         <canvas id="game-canvas" width="600" height="600"></canvas>
     </div>
     <div id="button-container">
-        <button id="restart-button" onclick="restartGame()">Заново</button>
         <button id="home-button" onclick="goHome()">Домой</button>
     </div>
 </body>
@@ -132,7 +123,7 @@
                     'Content-Type': 'application/json',
                 },
                 credentials: 'include',
-                body: JSON.stringify({ grid: grid, changedCell: { x: cellX, y: cellY } })
+                body: JSON.stringify({ grid: grid, targetLength: targetLength })
             })
                 .then(response => {
                     if (!response.ok) {
@@ -189,7 +180,6 @@
                 if (player === "-") {
                     continue;
                 }
-
 
                 if (
                     checkDirection(x, y, 0, 1, player) ||
@@ -270,12 +260,6 @@
 
         canvas.addEventListener("click", handleClick);
 
-    }
-    function restartGame() {
-        grid = createGameField(gridSize);
-        drawGrid(grid);
-        localStorage.removeItem("gameField");
-        canvas.addEventListener("click", handleClick);
     }
     function goHome() {
         window.location.href = '/';
