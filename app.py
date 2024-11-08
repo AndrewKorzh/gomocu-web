@@ -1,7 +1,4 @@
 from flask import Flask, render_template, request, jsonify, make_response
-import uuid
-import numpy as np
-
 
 MAX_H = 4200000
 
