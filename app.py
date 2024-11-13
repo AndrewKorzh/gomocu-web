@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify, make_response
+import os
 
 MAX_H = 4200000
 
@@ -155,4 +156,4 @@ def update_game():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
